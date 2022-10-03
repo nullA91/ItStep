@@ -1,28 +1,53 @@
-#ifndef POINT_H
-#define POINT_H
+#pragma once
 
-#include "../../Headers/libraries.h"
+#include "ComplexNumber.h"
+#include "Libraries.h"
 
-class Point
+/*
+Реализуйте класс “Точка”.Необходимо хранить координаты x, y, z в переменных - членах класса.
+Реализуйте функции - члены класса для ввода данных, вывода данных, реализуйте аксессоры для 
+доступа к переменным - членам, реализуйте сохранение в файл и загрузку данных из файла.
+*/
+
+class Point : public Complex
 {
-    private:
-        double Y;
-        double X;
-        double Z;
-
-        std::string* view;
-    public:
-        // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
-        Point();
-        // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
-        Point(const Point& point);
-        // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
-        ~Point();
-        void create_point();
-        void output_point();
-        int distance_between_points(const Point& pointB);
-        void menu_point();
-        void destroy_point();
+	public:
+		// ***** конструкторы ***** //
+		// универсальный конструктор
+		Point() : x(NULL), y(NULL), z(NULL) { }
+		// конструктор копирования
+		Point(const Point& point) : x(point.x), y(point.y) 
+			{ z.setRez(x); z.setImz(y); }
+		// ***** методы ***** //
+		// ввод данных
+		bool input();
+		// вывод данных
+		bool output();
+		// ***** аксессоры ***** //
+		// получить значение x
+		int getX() { return x; }
+		// получить значение y
+		int getY() { return y; }
+		// получить значение z
+		Complex getZ() { return z; }
+		// ***** мутаторы *****
+		// установить значение x
+		void setX(const int& value) { x = value; }
+		// установить значение y
+		void setY(const int& value) { y = value; }
+		// установить значение z
+		void setZ(Complex& value)
+		{
+			x = value.getRez();
+			y = value.getImz();
+			z.setRez(value.getRez());
+			z.setImz(value.getImz());
+		}
+		// ********************
+		// запись данных в файл
+		void write_data_file(std::ofstream& file, const std::string& path);
+	private:
+		int x;
+		int y;
+		Complex z;
 };
-
-#endif // POINT_H

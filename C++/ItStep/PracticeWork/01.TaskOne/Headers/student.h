@@ -1,63 +1,70 @@
-#ifndef STUDENT_H
-#define STUDENT_H
+#pragma once
 
-#include "../../Headers/libraries.h"
+/*
+Реализуйте класс “Студент”. Необходимо хранить в переменных-членах класса: ФИО, дату рождения, контактный телефон, 
+город, страну, название учебного заведения, город и страну (где находится учебное заведение),  номер группы. 
+Реализуйте функции-члены класса для ввода данных, вывода данных, реализуйте аксессоры для доступа к отдельным переменным-членам.
+*/
+
+#include "Libraries.h"
 
 class Student
 {
-    private:
-        char* name;
-        char* surname;
-        char* patronymic;
-        char* birth_date;
-        char* phone_number;
-        char* country;
-        char* city;
-        char* institution_name;
-        char* institution_country;
-        char* institution_city;
-        char* group_number;
-    public:
-        // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
-        Student();
-        // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
-        Student(const Student&);
-        // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
-        ~Student();
-        // **************************** //
-        // ********** РјРµС‚РѕРґС‹ ********** //
-        // **************************** //
-        // РІРІРѕРґ РґР°РЅРЅС‹С…
-        void input();
-        // РІС‹РІРѕРґ РґР°РЅРЅС‹С…
-        void output();
-        // Р·Р°РїРёСЃСЊ РґР°РЅРЅС‹С… РІ С„Р°Р№Р»
-        void write_data_file(const std::string& path);
-        // **************************** //
-        // ********* Р°РєСЃРµСЃСЃРѕСЂС‹ ******** //
-        // **************************** //
-        // РёРјСЏ СЃС‚СѓРґРµРЅС‚Р°
-        inline const std::string getName() const { return name; }
-        // С„Р°РјРёР»РёСЏ СЃС‚СѓРґРµРЅС‚Р°
-        inline const std::string getSurname() const { return surname; }
-        // РѕС‚С‡РµСЃС‚РІРѕ СЃС‚СѓРґРµРЅС‚Р°
-        inline const std::string getPatronymic() const { return patronymic; }
-        // РґР°С‚Р° СЂРѕР¶РґРµРЅРёСЏ СЃС‚СѓРґРµРЅС‚Р°
-        inline const std::string getDateBirth() const { return birth_date; }
-        // С‚РµР»РµС„РѕРЅРЅС‹Р№ РЅРѕРјРµСЂ СЃС‚СѓРґРµРЅС‚Р°
-        inline const std::string getPhone() const { return phone_number; }
-        // СЃС‚СЂР°РЅР° СЂРѕР¶РґРµРЅРёСЏ СЃС‚СѓРґРµРЅС‚Р°
-        inline const std::string getCountry() const { return country; }
-        // РіРѕСЂРѕРґ СЂРѕР¶РґРµРЅРёСЏ СЃС‚СѓРґРµРЅС‚Р°
-        inline const std::string getCity() const { return city; }
-        // РЅР°Р·РІР°РЅРёСЏ СѓС‡РµР±РЅРѕРіРѕ Р·Р°РІРµРґРµРЅРёСЏ
-        inline const std::string getInstitutName() const { return institution_name; }
-        // СЃС‚СЂР°РЅР° СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ СѓС‡РµР±РЅРѕРіРѕ Р·Р°РІРµРґРµРЅРёСЏ
-        inline const std::string getInstitutCountry() const { return institution_country; }
-        // РіРѕСЂРѕРґ СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ СѓС‡РµР±РЅРѕРіРѕ Р·Р°РІРµРґРµРЅРёСЏ
-        inline const std::string getInstitutCity() const { return institution_city; }
-        // РЅРѕРјРµСЂ РіСЂСѓРїРїС‹
-        inline const std::string getGroupNumber() const { return group_number; }
+private:
+	char* name;
+	char* surname;
+	char* patronymic;
+	char* birth_date;
+	char* phone_number;
+	char* country;
+	char* city;
+	char* institution_name;
+	char* institution_country;
+	char* institution_city;
+	char* group_number;
+public:
+	// конструктор без параметров
+	Student();
+	// конструктор копирования
+	Student(const Student&);
+	// деструктор
+	~Student();
+	// **************************** //
+	// ********** методы ********** //
+	// **************************** //
+	// ввод данных
+	void input();
+	// вывод данных
+	void output();
+	// запись данных в файл
+	void write_data_file(const std::string& path);
+	// **************************** //
+	// ********* аксессоры ******** //
+	// **************************** //
+	// имя студента
+	inline const std::string getName() const { return name; }
+	// фамилия студента
+	inline const std::string getSurname() const { return surname; }
+	// отчество студента
+	inline const std::string getPatronymic() const { return patronymic; }
+	// дата рождения студента
+	inline const std::string getDateBirth() const { return birth_date; }
+	// телефонный номер студента
+	inline const std::string getPhone() const { return phone_number; }
+	// страна рождения студента
+	inline const std::string getCountry() const { return country; }
+	// город рождения студента
+	inline const std::string getCity() const { return city; }
+	// названия учебного заведения
+	inline const std::string getInstitutName() const { return institution_name; }
+	// страна расположения учебного заведения
+	inline const std::string getInstitutCountry() const { return institution_country; }
+	// город расположения учебного заведения
+	inline const std::string getInstitutCity() const { return institution_city; }
+	// номер группы
+	inline const std::string getGroupNumber() const { return group_number; }
+	// ***************************** //
+	// *** перегрузка операторов *** //
+	// ***************************** //
+	friend std::ostream& operator<< (std::ostream& output, const Student& student);
 };
-
-#endif // STUDENT_H

@@ -1,9 +1,8 @@
-#ifndef LIBRARIES_H
-#define LIBRARIES_H
+#pragma once
 
 #include <cmath>
+#include <cstdlib>
 #include <cstring>
 #include <fstream>
 #include <iostream>
-
-#endif // LIBRARIES_H
+#include <string>
