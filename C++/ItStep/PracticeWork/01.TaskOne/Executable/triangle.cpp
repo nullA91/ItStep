@@ -165,7 +165,7 @@ std::istream& operator>>(std::istream& stream_input, Triangle triangle)
 
 std::ostream& operator<<(std::ostream& stream_output, const Triangle& triangle)
 {
-	triangle.output();
+
 
 	return stream_output;
 }
